@@ -63,6 +63,11 @@ export const formFields = [
     ],
   },
   {
+    control: "date",
+    id: "date",
+    label: "Date",
+  },
+  {
     control: "button",
     type: "button",
     id: "submit",

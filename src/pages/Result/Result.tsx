@@ -6,6 +6,7 @@ import DropDown from "../../components/DropDown/DropDown";
 import RadioGroup from "../../components/RadioGroup/RadioGroup";
 import { formDetail, formFields } from "../Config/Config";
 import { textFieldProps, buttonProps } from "../../types";
+import DatePicker from "../../components/DatePicker/DatePicker";
 
 const renderControl = (item: any, idx: number) => {
   const commonProps = {
@@ -42,6 +43,8 @@ const renderControl = (item: any, idx: number) => {
       return <DropDown {...commonProps} options={item.options} />;
     case "radiogroup":
       return <RadioGroup {...commonProps} options={item.options} />;
+    case "date":
+      return <DatePicker {...commonProps} />;
     default:
       break;
   }
