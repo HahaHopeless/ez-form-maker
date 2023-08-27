@@ -1,5 +1,14 @@
+import React from "react";
+
 export default function Config() {
-  return <select></select>;
+  return (
+    <>
+      <p>Form Configuration</p>
+      <textarea></textarea>
+      <br />
+      <button>Generate Form</button>
+    </>
+  );
 }
 
 export const formFields = [

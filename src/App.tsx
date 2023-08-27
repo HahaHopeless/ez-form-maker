@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Result from "./pages/Result/Result";
+import Config from "./pages/Config/Config";
 
 function App() {
   const [tab, setTab] = useState("result");
@@ -46,6 +47,7 @@ function App() {
         </div>
       </div>
       <div>{tab === "result" && <Result />}</div>
+      <div>{tab === "config" && <Config />}</div>
     </>
   );
 }
