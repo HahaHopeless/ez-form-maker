@@ -1,5 +1,5 @@
 import React from "react";
-import Result from "./component/Result/Result";
+import Result from "./components/Result/Result";
 
 function App() {
   return (
