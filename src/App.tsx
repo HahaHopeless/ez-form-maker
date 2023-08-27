@@ -18,6 +18,7 @@ function App() {
             cursor: "pointer",
             backgroundColor: tab === "config" ? "#3498DB" : "#FFFFFF",
             color: tab === "config" ? "#FFFFFF" : "#000000",
+            fontWeight: tab === "config" ? 800 : 400,
             transition: "background-color 0.1s ease-in",
           }}
           onClick={() => {
@@ -37,6 +38,7 @@ function App() {
             cursor: "pointer",
             backgroundColor: tab === "result" ? "#3498DB" : "#FFFFFF",
             color: tab === "result" ? "#FFFFFF" : "#000000",
+            fontWeight: tab === "result" ? 800 : 400,
             transition: "background-color 0.1s ease-in",
           }}
           onClick={() => {
