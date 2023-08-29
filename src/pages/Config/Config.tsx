@@ -3,58 +3,32 @@ import React, { useEffect, useState } from "react";
 export const formFields = [
   {
     control: "textfield",
-    id: "firstName",
-    label: "Model",
-    required: true,
-  },
-  {
-    control: "textfield",
-    id: "lastName",
-    label: "Last Name",
+    id: "roomTitle",
+    label: "Room Title",
+    class: "Test",
+    style: {
+      padding: "60px",
+    },
   },
   {
     control: "textarea",
-    id: "description",
-    label: "Description",
-  },
-  {
-    control: "dropdown",
-    id: "description",
-    label: "Description",
-    options: [
-      {
-        value: "AU",
-        label: "Australia",
-      },
-      {
-        value: "US",
-        label: "America",
-      },
-    ],
+    id: "roomDescription",
+    label: "Room Description",
   },
   {
     control: "radiogroup",
-    id: "taxBracket",
-    label: "Tax Bracket",
+    id: "roomFloor",
+    label: "Room Floor",
     options: [
       {
-        value: "20",
-        label: "20%",
+        value: "3",
+        label: "3rd Floor",
       },
       {
-        value: "30",
-        label: "30%",
-      },
-      {
-        value: "40",
-        label: "40%",
+        value: "12",
+        label: "12th Floor",
       },
     ],
-  },
-  {
-    control: "date",
-    id: "date",
-    label: "Date",
   },
   {
     control: "button",
@@ -66,29 +40,6 @@ export const formFields = [
 ];
 
 export default function Config() {
-  const [newJsonObject, setNewJsonObject] = useState<{ [key: string]: string }>(
-    {}
-  );
-
-  const jsonToState = () => {
-    //Have a fresh empty JSON to fill it with key:value
-    const jsonObject: { [key: string]: string } = {};
-    //Iterate over the formFields array and look for a key named id
-    //then have a key with the same name as id and set it as empty string (for now. Will deal with bool later)
-    formFields.forEach((field) => {
-      jsonObject[field.id] = "";
-    });
-    //Finally update the json state variable
-    setNewJsonObject(jsonObject);
-  };
-
-  useEffect(() => {
-    jsonToState();
-  }, []);
-  useEffect(() => {
-    console.log("newJsonObject: ", newJsonObject);
-  }, [newJsonObject]);
-
   return (
     <>
       <p>Form Configuration</p>

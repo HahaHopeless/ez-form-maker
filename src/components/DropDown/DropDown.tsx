@@ -10,12 +10,13 @@ const DropDown: React.FC<DropdownProps> = ({ label, options, ...props }) => {
   return (
     <>
       <p>{label}</p>
-      <select {...props}>
-        {options.map((item: OptionsProps, idx) => (
-          <option key={idx} value={item.value}>
-            {item.label}
-          </option>
-        ))}
+      <select {...props} onChange={props.onChange}>
+        {options &&
+          options.map((item: OptionsProps, idx) => (
+            <option key={idx} value={item.value}>
+              {item.label}
+            </option>
+          ))}
       </select>
     </>
   );

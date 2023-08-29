@@ -12,7 +12,7 @@ const DatePicker: React.FC<RadioGroupProps> = ({
   return (
     <div>
       <p>{label}</p>
-      <input {...props} name={id} type='date' />
+      <input {...props} name={id} type='date' onChange={props.onChange} />
     </div>
   );
 };

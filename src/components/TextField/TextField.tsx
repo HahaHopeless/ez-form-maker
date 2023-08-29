@@ -14,7 +14,13 @@ const TextField: React.FC<TextFieldProps> = ({
         {label}
         {required && "*"}
       </p>
-      <input {...props}></input>
+      <input
+        {...props}
+        className={`ez-form-maker-textfeild ${
+          required && !props.value && "ez-form-maker-textfeild--error"
+        } ${props.className}`}
+        onChange={props.onChange}
+      ></input>
     </>
   );
 };
