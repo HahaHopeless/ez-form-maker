@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Result from "./pages/Result/Result";
-import Config from "./pages/Config/Config";
+import Result from "./components/Result/Result";
+import Config from "./components/Config/Config";
 
 function App() {
   const [tab, setTab] = useState("result");

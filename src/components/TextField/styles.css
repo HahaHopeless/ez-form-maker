@@ -1,3 +1,4 @@
 .ez-form-maker-textfeild.--error {
   border: 2px solid red;
+  transition: border 0.3s ease-in;
 }
