@@ -5,10 +5,8 @@ export const formFields = [
     control: "textfield",
     id: "roomTitle",
     label: "Room Title",
-    class: "Test",
-    style: {
-      padding: "60px",
-    },
+    className: "Test",
+    required: true,
   },
   {
     control: "textarea",

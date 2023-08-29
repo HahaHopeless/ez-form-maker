@@ -12,14 +12,16 @@ export default function Result() {
   const [jsonStateObject, setJsonStateObject] = useState<{
     [key: string]: string;
   }>({});
-
+  const [isFormDirty, setIsFormDirty] = useState<boolean>(false);
   const jsonToState = () => {
     //Have a fresh empty JSON to fill it with key:value
     const jsonObject: { [key: string]: string } = {};
     //Iterate over the formFields array and look for a key named id
     //then have a key with the same name as id and set it as empty string (for now. Will deal with bool later)
     formFields.forEach((field) => {
-      jsonObject[field.id] = "";
+      if (field.control !== "button") {
+        jsonObject[field.id] = "";
+      }
     });
     //Finally update the json state variable
     setJsonStateObject(jsonObject);
@@ -28,10 +30,6 @@ export default function Result() {
   useEffect(() => {
     jsonToState();
   }, []);
-
-  useEffect(() => {
-    console.log("newJsonObject: ", jsonStateObject);
-  }, [jsonStateObject]);
 
   const onChange = (fieldName: string, value: string) => {
     const updatedJson = { ...jsonStateObject };
@@ -67,10 +65,12 @@ export default function Result() {
       case "textfield":
         return (
           <TextField
-            {...textFieldProps(item, idx)}
+            {...commonProps}
             onChange={(e) => {
               onChange(item.id, e.target.value);
             }}
+            value={jsonStateObject[item.id]}
+            error={isFormDirty && !jsonStateObject[item.id]}
           />
         );
       case "textarea":
@@ -80,10 +80,21 @@ export default function Result() {
             onChange={(e) => {
               onChange(item.id, e.target.value);
             }}
+            value={jsonStateObject[item.id]}
+            error={isFormDirty}
           />
         );
       case "button":
-        return <Button {...buttonProps(item, idx)}>{item.label}</Button>;
+        return (
+          <Button
+            {...buttonProps(item, idx)}
+            onClick={() => {
+              console.log("JSON: ", jsonStateObject);
+            }}
+          >
+            {item.label}
+          </Button>
+        );
       case "dropdown":
         return (
           <DropDown
@@ -92,6 +103,8 @@ export default function Result() {
             onChange={(e) => {
               onChange(item.id, e.target.value);
             }}
+            value={jsonStateObject[item.id]}
+            error={isFormDirty}
           />
         );
       case "radiogroup":
@@ -102,6 +115,8 @@ export default function Result() {
             onChange={(e) => {
               onChange(item.id, e.target.value);
             }}
+            value={jsonStateObject[item.id]}
+            error={isFormDirty}
           />
         );
       case "date":
@@ -111,6 +126,8 @@ export default function Result() {
             onChange={(e) => {
               onChange(item.id, e.target.value);
             }}
+            value={jsonStateObject[item.id]}
+            error={isFormDirty}
           />
         );
       default:

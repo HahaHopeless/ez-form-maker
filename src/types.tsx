@@ -6,19 +6,21 @@ export interface TextFieldProps
   regex?: string;
   label?: string;
   required?: boolean;
+  error?: boolean;
 }
 export interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   required?: boolean;
   label?: string;
+  error?: boolean;
 }
 
 export interface RadioGroupProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  value?: string | number;
   options?: [];
   label?: string;
   required?: boolean;
+  error?: boolean;
 }
 
 export interface ButtonProps
@@ -31,6 +33,7 @@ export interface DropdownProps
   options?: [];
   label?: string;
   required?: boolean;
+  error?: boolean;
 }
 
 export interface CheckboxProps
@@ -38,6 +41,7 @@ export interface CheckboxProps
   options?: [];
   label?: string;
   required?: boolean;
+  error?: boolean;
 }
 
 export interface OptionsProps {
@@ -102,37 +106,5 @@ export const buttonProps = (item: any, key: any) => {
     onFocus: item.onFocus,
     onBlur: item.onBlur,
     children: item.children,
-  };
-};
-
-export const textAreaProps = (item: any, key: any) => {
-  return {
-    key: key,
-    defaultValue: item.defaultValue,
-    disabled: item.disabled,
-    onChange: item.onChange,
-    onBlur: item.onBlur,
-    onFocus: item.onFocus,
-    id: item.id,
-    name: item.name,
-    placeholder: item.placeholder,
-    rows: item.rows,
-    cols: item.cols,
-    maxLength: item.maxLength,
-    autoFocus: item.autoFocus,
-    autoComplete: item.autoComplete,
-    minLength: item.minLength,
-    spellCheck: item.spellCheck,
-    tabIndex: item.tabIndex,
-    title: item.title,
-    style: item.style,
-    className: item.className,
-    value: item.value,
-    required: item.required,
-    readOnly: item.readOnly,
-    wrap: item.wrap,
-    autoResize: item.autoResize,
-    rowsMin: item.rowsMin,
-    rowsMax: item.rowsMax,
   };
 };

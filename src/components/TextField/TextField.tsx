@@ -1,3 +1,4 @@
+import "./styles.css";
 import React from "react";
 import { TextFieldProps } from "../../types";
 
@@ -6,6 +7,7 @@ const TextField: React.FC<TextFieldProps> = ({
   required,
   type,
   regex,
+  error,
   ...props
 }) => {
   return (
@@ -16,10 +18,11 @@ const TextField: React.FC<TextFieldProps> = ({
       </p>
       <input
         {...props}
-        className={`ez-form-maker-textfeild ${
-          required && !props.value && "ez-form-maker-textfeild--error"
-        } ${props.className}`}
+        className={`ez-form-maker-textfeild ${required && error && "--error"} ${
+          props.className
+        }`}
         onChange={props.onChange}
+        value={props.value}
       ></input>
     </>
   );

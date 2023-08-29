@@ -1,3 +1,4 @@
+import "./styles.css";
 import React from "react";
 import { RadioGroupProps, OptionsProps } from "../../types";
 
@@ -5,12 +6,15 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   required,
   id,
   label,
-  value,
   options,
   ...props
 }) => {
   return (
-    <div>
+    <div
+      className={`ez-form-maker-radiogroup ${
+        required && !props.value && "--error"
+      } ${props.className}`}
+    >
       <p>
         {label}
         {required && "*"}
