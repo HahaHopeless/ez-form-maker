@@ -1,3 +1,4 @@
+import "./App.css";
 import React, { useState } from "react";
 import Result from "./components/Result/Result";
 import Config from "./components/Config/Config";
@@ -8,19 +9,7 @@ function App() {
     <>
       <div style={{ display: "flex", alignItems: "center" }}>
         <div
-          style={{
-            width: "100px",
-            height: "30px",
-            border: "1px solid black",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "pointer",
-            backgroundColor: tab === "config" ? "#3498DB" : "#FFFFFF",
-            color: tab === "config" ? "#FFFFFF" : "#000000",
-            fontWeight: tab === "config" ? 800 : 400,
-            transition: "background-color 0.1s ease-in",
-          }}
+          className={`app-tab ${tab === "config" && "active"}`}
           onClick={() => {
             setTab("config");
           }}
@@ -28,19 +17,7 @@ function App() {
           Config
         </div>
         <div
-          style={{
-            width: "100px",
-            height: "30px",
-            border: "1px solid black",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "pointer",
-            backgroundColor: tab === "result" ? "#3498DB" : "#FFFFFF",
-            color: tab === "result" ? "#FFFFFF" : "#000000",
-            fontWeight: tab === "result" ? 800 : 400,
-            transition: "background-color 0.1s ease-in",
-          }}
+          className={`app-tab ${tab === "result" && "active"}`}
           onClick={() => {
             setTab("result");
           }}
@@ -48,6 +25,7 @@ function App() {
           Result
         </div>
       </div>
+      <div style={{ height: "1px", background: "rgba(0,0,0,0.2)" }}></div>
       <div>{tab === "result" && <Result />}</div>
       <div>{tab === "config" && <Config />}</div>
     </>

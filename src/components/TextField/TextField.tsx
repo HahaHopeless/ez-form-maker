@@ -12,7 +12,7 @@ const TextField: React.FC<TextFieldProps> = ({
 }) => {
   return (
     <>
-      <p>
+      <p style={{ margin: 0 }}>
         {label}
         {required && "*"}
       </p>

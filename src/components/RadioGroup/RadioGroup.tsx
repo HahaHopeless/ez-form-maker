@@ -15,13 +15,13 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
         required && !props.value && "--error"
       } ${props.className}`}
     >
-      <p>
+      <p style={{ margin: 0 }}>
         {label}
         {required && "*"}
       </p>
       {options &&
         options.map((item: OptionsProps, idx) => (
-          <div key={`radio_${idx}`}>
+          <span key={`radio_${idx}`} className={`radio-input`}>
             <input
               {...props}
               key={`input_${idx}`}
@@ -31,7 +31,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
               onChange={props.onChange}
             />
             <label key={`label_${idx}`}>{item.label}</label>
-          </div>
+          </span>
         ))}
     </div>
   );

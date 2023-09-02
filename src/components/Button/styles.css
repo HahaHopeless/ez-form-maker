@@ -1,0 +1,26 @@
+.ez-form-maker-button {
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  height: 32px;
+  padding: 4px 15px;
+  border-radius: 6px;
+  color: #fff;
+  background-color: #1677ff;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+  cursor: pointer;
+  border: 1px solid transparent;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  transition: all 0.2s ease-in;
+}
+.ez-form-maker-button:hover {
+  color: #fff;
+  background-color: #4096ff;
+}
+.ez-form-maker-button:active {
+  color: #fff;
+  background-color: #0958d9;
+}

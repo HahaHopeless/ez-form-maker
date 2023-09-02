@@ -55,6 +55,11 @@ export default function Result() {
       setIsFormDirty(true);
     } else {
       setIsFormDirty(false);
+      !isFormDirty &&
+        console.log(
+          "JSON: ",
+          _.mapValues(jsonStateObject, (item) => item.value)
+        );
     }
   };
 
@@ -116,10 +121,6 @@ export default function Result() {
             {...buttonProps(item, idx)}
             onClick={() => {
               validateForm();
-              console.log(
-                "JSON: ",
-                _.mapValues(jsonStateObject, (item) => item.value)
-              );
             }}
           >
             {item.label}

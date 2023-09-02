@@ -1,3 +1,5 @@
 .ez-form-maker-radiogroup.--error {
-  border: 2px solid red;
+}
+.radio-input {
+  cursor: pointer;
 }

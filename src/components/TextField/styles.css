@@ -1,4 +1,28 @@
 .ez-form-maker-textfeild.--error {
-  border: 2px solid red;
-  transition: border 0.3s ease-in;
+  border: 1px solid rgba(255, 0, 0, 1);
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1);
+  transition: all 0.2s ease-in;
+}
+
+.ez-form-maker-textfeild {
+  margin: 0;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  display: inline-block;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  transition: all 0.2s ease-in;
+}
+
+.ez-form-maker-textfeild:focus {
+  border-color: #4096ff;
+  box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+  border-inline-end-width: 1px;
+  outline: 0;
+}
+
+.ez-form-maker-textfeild:hover {
+  border-color: #4096ff;
+  border-inline-end-width: 1px;
 }

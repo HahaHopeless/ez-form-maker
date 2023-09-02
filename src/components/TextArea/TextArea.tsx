@@ -10,12 +10,12 @@ const TextArea: React.FC<TextAreaProps> = ({
 }) => {
   return (
     <>
-      <p>
+      <p style={{ margin: 0 }}>
         {label}
         {required && "*"}
       </p>
       <textarea
-        className={`ez-form-maker-textarea ${required && error && "--error"} ${
+        class={`ez-form-maker-textarea ${required && error && "--error"} ${
           props.className
         }`}
         {...props}

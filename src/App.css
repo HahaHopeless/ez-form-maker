@@ -1,0 +1,18 @@
+.app-tab {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in;
+}
+.app-tab:hover {
+  color: #4096ff;
+}
+.active {
+  color: #1677ff;
+  text-shadow: 0 0 0.25px currentcolor;
+  border-bottom: 2px solid #1677ff;
+}
