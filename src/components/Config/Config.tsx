@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import Button from "../Button/Button";
+import TextArea from "../TextArea/TextArea";
+import { AppContext } from "../../context";
 
 export const formFields = [
   {
@@ -38,12 +41,12 @@ export const formFields = [
 ];
 
 export default function Config() {
+  const { setTab } = useContext(AppContext);
   return (
     <>
-      <p>Form Configuration</p>
-      <textarea></textarea>
+      <TextArea label='Form Config' />
       <br />
-      <button>Generate Form</button>
+      <Button onClick={() => setTab("result")}>Generate Form</Button>
     </>
   );
 }

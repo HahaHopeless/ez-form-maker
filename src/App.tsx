@@ -1,10 +1,11 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Result from "./components/Result/Result";
 import Config from "./components/Config/Config";
+import { AppContext } from "./context";
 
 function App() {
-  const [tab, setTab] = useState("result");
+  const { tab, setTab } = useContext(AppContext);
   return (
     <>
       <div style={{ display: "flex", alignItems: "center" }}>
