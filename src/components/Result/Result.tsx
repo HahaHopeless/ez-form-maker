@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TextField from "../TextField/TextField";
 import Button from "../Button/Button";
 import TextArea from "../TextArea/TextArea";
@@ -8,6 +8,7 @@ import { formDetail, formFields } from "../Config/Config";
 import { buttonProps } from "../../types";
 import DatePicker from "../DatePicker/DatePicker";
 import * as _ from "lodash";
+import { AppContext } from "../../context";
 
 interface JSONStateObject {
   [key: string]: {
@@ -17,6 +18,7 @@ interface JSONStateObject {
 }
 
 export default function Result() {
+  const { formData } = useContext(AppContext);
   const [jsonStateObject, setJsonStateObject] = useState<JSONStateObject>({});
   const [isFormDirty, setIsFormDirty] = useState<boolean>(false);
 
@@ -55,11 +57,6 @@ export default function Result() {
       setIsFormDirty(true);
     } else {
       setIsFormDirty(false);
-      !isFormDirty &&
-        console.log(
-          "JSON: ",
-          _.mapValues(jsonStateObject, (item) => item.value)
-        );
     }
   };
 
@@ -176,7 +173,7 @@ export default function Result() {
     <div>
       <h2>{formDetail.title}</h2>
       <form>
-        {formDetail.formFields.map((item, idx) => {
+        {formData.map((item, idx) => {
           return jsonStateObject && renderControl(item, idx);
         })}
       </form>

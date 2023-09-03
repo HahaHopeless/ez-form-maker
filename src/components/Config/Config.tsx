@@ -1,57 +1,41 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "../Button/Button";
 import TextArea from "../TextArea/TextArea";
 import { AppContext } from "../../context";
-
-export const formFields = [
-  {
-    control: "textfield",
-    id: "roomTitle",
-    label: "Room Title",
-    className: "Test",
-    required: true,
-  },
-  {
-    control: "textarea",
-    id: "roomDescription",
-    label: "Room Description",
-  },
-  {
-    control: "radiogroup",
-    id: "roomFloor",
-    label: "Room Floor",
-    options: [
-      {
-        value: "3",
-        label: "3rd Floor",
-      },
-      {
-        value: "12",
-        label: "12th Floor",
-      },
-    ],
-  },
-  {
-    control: "button",
-    type: "button",
-    id: "submit",
-    label: "Submit",
-    className: "btn-submit",
-  },
-];
+import * as _ from "lodash";
 
 export default function Config() {
-  const { setTab } = useContext(AppContext);
+  const { setTab, setFormData, formString, setFormString } =
+    useContext(AppContext);
   return (
     <>
-      <TextArea label='Form Config' />
+      <TextArea
+        rows={20}
+        label='Form Config'
+        value={formString}
+        onChange={(e) => {
+          setFormString(e.target.value);
+        }}
+      />
       <br />
-      <Button onClick={() => setTab("result")}>Generate Form</Button>
+      <Button
+        onClick={() => {
+          const stringifyJSON = JSON.stringify(formString);
+          const toobj = JSON.parse(stringifyJSON);
+          const addDoubleQuotes = toobj.replace(/(\w+):/g, '"$1":');
+          const removeComma1 = addDoubleQuotes.replace(/,\s*}/g, "}");
+          const removeComma2 = removeComma1.replace(/,\s*]/g, "]");
+          const finalObj = JSON.parse(removeComma2);
+          setFormData(finalObj);
+          setTab("result");
+        }}
+      >
+        Generate Form
+      </Button>
     </>
   );
 }
 
 export const formDetail = {
   title: "My Form",
-  formFields,
 };
