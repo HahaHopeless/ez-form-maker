@@ -69,3 +69,11 @@ Control types:
 - radiogroup
 - date
 - button
+
+
+Recommended Node version 16.16.0
+
+How to run the project:
+1. Pull the code from from develop branch.
+2. Run the command npm i
+3. Run the command npm start
