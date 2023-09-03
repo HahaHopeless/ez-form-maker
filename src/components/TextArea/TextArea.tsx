@@ -15,7 +15,7 @@ const TextArea: React.FC<TextAreaProps> = ({
         {required && "*"}
       </p>
       <textarea
-        class={`ez-form-maker-textarea ${required && error && "--error"} ${
+        className={`ez-form-maker-textarea ${required && error && "--error"} ${
           props.className
         }`}
         {...props}

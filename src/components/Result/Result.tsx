@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import TextArea from "../TextArea/TextArea";
 import DropDown from "../DropDown/DropDown";
 import RadioGroup from "../RadioGroup/RadioGroup";
-import { formDetail, formFields } from "../Config/Config";
+import { formDetail } from "../Config/Config";
 import { buttonProps } from "../../types";
 import DatePicker from "../DatePicker/DatePicker";
 import * as _ from "lodash";
@@ -27,7 +27,7 @@ export default function Result() {
     const jsonObject: JSONStateObject = {};
     //Iterate over the formFields array and look for a key named id
     //then have a key with the same name as id and set it as empty string (for now. Will deal with bool later)
-    formFields.forEach((field) => {
+    formData.forEach((field: any) => {
       if (field.control !== "button") {
         jsonObject[field.id] = { value: "", required: field.required };
       }
@@ -49,7 +49,7 @@ export default function Result() {
   const validateForm = () => {
     const requiredItemsEmpty = _.some(
       jsonStateObject,
-      (item) =>
+      (item: any) =>
         item.required &&
         (_.isEmpty(item.value) || !_.isString(item.value.trim()))
     );
