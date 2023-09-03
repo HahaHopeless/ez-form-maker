@@ -45,3 +45,23 @@ sample input:
     className: "btn-submit",
   },
 ]
+
+
+
+
+[
+  {
+    control: textfield,
+    id: roomTitle,
+    label: Room Title,
+    className: Test,
+    required: true,
+  },
+  {
+    control: "button",
+    type: "button",
+    id: "submit",
+    label: "Submit",
+    className: "btn-submit",
+  },
+]

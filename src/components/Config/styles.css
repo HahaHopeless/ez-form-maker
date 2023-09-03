@@ -1,0 +1,12 @@
+.error-box {
+  background: rgba(255, 107, 129, 0.3);
+  border-radius: 6px;
+  font-size: 12px;
+  height: 0px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.--visible {
+  height: 150px;
+}
