@@ -21,9 +21,18 @@ export default function Result() {
   const { formData } = useContext(AppContext);
   const [jsonStateObject, setJsonStateObject] = useState<JSONStateObject>({});
   const [isFormDirty, setIsFormDirty] = useState<boolean>(false);
+  const [outputJson, setOutputJson] = useState({});
 
   React.useEffect(() => {
-    console.log("jsonStateObject: ", jsonStateObject);
+    const removeRequiredKey = _.mapValues(jsonStateObject, (obj) =>
+      _.omit(obj, "required")
+    );
+    const manipulatedJSON = _.mapValues(
+      removeRequiredKey,
+      (value) => value.value || ""
+    );
+    console.log(manipulatedJSON);
+    setOutputJson(manipulatedJSON);
   }, [jsonStateObject]);
 
   const jsonToState = () => {
@@ -57,7 +66,6 @@ export default function Result() {
         item.required &&
         (_.isEmpty(item.value) || !_.isString(item.value.trim()))
     );
-    console.log(requiredItemsEmpty);
     if (requiredItemsEmpty) {
       setIsFormDirty(true);
     } else {
