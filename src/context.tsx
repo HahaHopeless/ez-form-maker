@@ -27,6 +27,7 @@ export const AppContextProvider = ({ children }: AppProviderProps) => {
       control: "textfield",
       id: "textfield",
       label: "Text Field",
+      required: "true",
     },
     {
       control: "textarea",
@@ -35,7 +36,7 @@ export const AppContextProvider = ({ children }: AppProviderProps) => {
     },
     {
       control: "dropdown",
-      type: "dropdown",
+      id: "dropdown",
       label: "Dropdown",
       options: [
         {
@@ -50,16 +51,16 @@ export const AppContextProvider = ({ children }: AppProviderProps) => {
     },
     {
       control: "radiogroup",
-      type: "radiogroup",
+      id: "radiogroup",
       label: "Radio Group",
       options: [
         {
-          value: "1",
-          label: "Option 1",
+          value: "3",
+          label: "Radio 1",
         },
         {
-          value: "2",
-          label: "Option 2",
+          value: "4",
+          label: "Radio 2",
         },
       ],
     },

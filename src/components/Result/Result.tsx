@@ -22,6 +22,10 @@ export default function Result() {
   const [jsonStateObject, setJsonStateObject] = useState<JSONStateObject>({});
   const [isFormDirty, setIsFormDirty] = useState<boolean>(false);
 
+  React.useEffect(() => {
+    console.log("jsonStateObject: ", jsonStateObject);
+  }, [jsonStateObject]);
+
   const jsonToState = () => {
     //Have a fresh empty JSON to fill it with key:value
     const jsonObject: JSONStateObject = {};
@@ -53,6 +57,7 @@ export default function Result() {
         item.required &&
         (_.isEmpty(item.value) || !_.isString(item.value.trim()))
     );
+    console.log(requiredItemsEmpty);
     if (requiredItemsEmpty) {
       setIsFormDirty(true);
     } else {
@@ -116,7 +121,8 @@ export default function Result() {
         return (
           <Button
             {...buttonProps(item, idx)}
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               validateForm();
             }}
           >

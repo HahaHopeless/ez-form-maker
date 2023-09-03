@@ -5,6 +5,7 @@ import { RadioGroupProps, OptionsProps } from "../../types";
 const DatePicker: React.FC<RadioGroupProps> = ({
   required,
   id,
+  error,
   label,
   value,
   options,
@@ -18,7 +19,9 @@ const DatePicker: React.FC<RadioGroupProps> = ({
         name={id}
         type='date'
         onChange={props.onChange}
-        className={`ez-form-maker-datepicker ${props.className}`}
+        className={`ez-form-maker-datepicker ${
+          required && error && "--error"
+        } ${error && "--error"} ${props.className}`}
       />
     </div>
   );

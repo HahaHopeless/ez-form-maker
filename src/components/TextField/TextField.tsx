@@ -19,8 +19,8 @@ const TextField: React.FC<TextFieldProps> = ({
       <input
         {...props}
         className={`ez-form-maker-textfeild ${required && error && "--error"} ${
-          props.className
-        }`}
+          error && "--error"
+        } ${props.className}`}
         onChange={props.onChange}
         value={props.value}
       ></input>
