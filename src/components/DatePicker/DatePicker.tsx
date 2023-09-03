@@ -1,3 +1,4 @@
+import "./styles.css";
 import React from "react";
 import { RadioGroupProps, OptionsProps } from "../../types";
 
@@ -11,8 +12,14 @@ const DatePicker: React.FC<RadioGroupProps> = ({
 }) => {
   return (
     <div>
-      <p>{label}</p>
-      <input {...props} name={id} type='date' onChange={props.onChange} />
+      <p style={{ margin: 0 }}>{label}</p>
+      <input
+        {...props}
+        name={id}
+        type='date'
+        onChange={props.onChange}
+        className={`ez-form-maker-datepicker ${props.className}`}
+      />
     </div>
   );
 };

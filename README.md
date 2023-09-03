@@ -8,60 +8,64 @@ This library simplifies form creation in React apps by allowing you to define fo
 
 
 sample input:
-
 [
   {
     control: "textfield",
-    id: "roomTitle",
-    label: "Room Title",
-    className: "Test",
-    required: true,
+    id: "textfield",
+    label: "Text Field",
   },
   {
     control: "textarea",
-    id: "roomDescription",
-    label: "Room Description",
+    id: "textarea",
+    label: "Text Area",
   },
   {
-    control: "radiogroup",
-    id: "roomFloor",
-    label: "Room Floor",
+    control: "dropdown",
+    type: "dropdown",
+    label: "Dropdown",
     options: [
       {
-        value: "3",
-        label: "3rd Floor",
+        value: "1",
+        label: "Option 1",
       },
       {
-        value: "12",
-        label: "12th Floor",
+        value: "2",
+        label: "Option 2",
       },
     ],
   },
   {
+     control: "radiogroup",
+    type: "radiogroup",
+    label: "Radio Group",
+    options: [
+      {
+        value: "1",
+        label: "Option 1",
+      },
+      {
+        value: "2",
+        label: "Option 2",
+      },
+    ],
+  },
+  {
+    control: "date",
+    id: "date",
+    label: "Date",
+  },
+   {
     control: "button",
-    type: "button",
-    id: "submit",
-    label: "Submit",
-    className: "btn-submit",
+    id: "button",
+    label: "Button",
   },
 ]
 
 
-
-
-[
-  {
-    control: textfield,
-    id: roomTitle,
-    label: Room Title,
-    className: Test,
-    required: true,
-  },
-  {
-    control: "button",
-    type: "button",
-    id: "submit",
-    label: "Submit",
-    className: "btn-submit",
-  },
-]
+Control types: 
+- textfield
+- textarea
+- dropdown
+- radiogroup
+- date
+- button

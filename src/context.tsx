@@ -21,8 +21,59 @@ interface AppProviderProps {
 export const AppContext = createContext<AppContextProps>({} as AppContextProps);
 
 export const AppContextProvider = ({ children }: AppProviderProps) => {
-  const [tab, setTab] = useState("config");
-  const [formData, setFormData] = useState<Array<{}>>([]);
+  const [tab, setTab] = useState("result");
+  const [formData, setFormData] = useState<Array<{}>>([
+    {
+      control: "textfield",
+      id: "textfield",
+      label: "Text Field",
+    },
+    {
+      control: "textarea",
+      id: "textarea",
+      label: "Text Area",
+    },
+    {
+      control: "dropdown",
+      type: "dropdown",
+      label: "Dropdown",
+      options: [
+        {
+          value: "1",
+          label: "Option 1",
+        },
+        {
+          value: "2",
+          label: "Option 2",
+        },
+      ],
+    },
+    {
+      control: "radiogroup",
+      type: "radiogroup",
+      label: "Radio Group",
+      options: [
+        {
+          value: "1",
+          label: "Option 1",
+        },
+        {
+          value: "2",
+          label: "Option 2",
+        },
+      ],
+    },
+    {
+      control: "date",
+      id: "date",
+      label: "Date",
+    },
+    {
+      control: "button",
+      id: "button",
+      label: "Button",
+    },
+  ]);
   const [formString, setFormString] = useState<string>("");
   return (
     <AppContext.Provider
